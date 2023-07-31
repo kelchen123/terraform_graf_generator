@@ -36,18 +36,8 @@ jobs:
           # Push the changes to the remote main branch
           git push
           
-      - name: Upload Grafana JSON to Dashboard
+      - name: Update Grafana dashboard using API
         if: steps.check_changes.outputs.changes == 'true'
         run: |
-          export GRAFANA_API_KEY=eyJrIjoiQnhvcG5kRXBnQnZYVDZ1Tm8wUWt3UzZhUWdJVWFGZTkiLCJuIjoidGVzdCIsImlkIjoxfQ==
-          export GRAFANA_URL=http://kelchen.remote.csb:3000
-
-          # Prepare the request payload
-          PAYLOAD=$(cat grafana/output.json)
-
-          # Send the POST request to create/update the dashboard
-          http --check-status POST "${GRAFANA_URL}/api/dashboards/db" \
-            "Authorization: Bearer ${GRAFANA_API_KEY}" \
-            "Content-Type: application/json" \
-            <<< "$PAYLOAD"
+          jq -n --slurpfile dashboard output.json '{ "dashboard": $dashboard[0], "message": "Made changes to xyz", "overwrite": false }' < output.json | curl -H "Authorization: Bearer eyJrIjoiQnhvcG5kRXBnQnZYVDZ1Tm8wUWt3UzZhUWdJVWFGZTkiLCJuIjoidGVzdCIsImlkIjoxfQ==" -X POST -H "Content-Type: application/json" --data-binary @- http://kelchen.remote.csb:3000/api/dashboards/import
           
