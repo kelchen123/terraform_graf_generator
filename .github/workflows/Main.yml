@@ -39,9 +39,15 @@ jobs:
       - name: Upload Grafana JSON to Dashboard
         if: steps.check_changes.outputs.changes == 'true'
         run: |
-          curl -H "Authorization: eyJrIjoiQnhvcG5kRXBnQnZYVDZ1Tm8wUWt3UzZhUWdJVWFGZTkiLCJuIjoidGVzdCIsImlkIjoxfQ==" \
-            -X POST \
-            -H "Content-Type: application/json" \
-            -d @grafana/output.json \
-            http://kelchen.remote.csb:3000/api/dashboards/db
+          export GRAFANA_API_KEY=eyJrIjoiQnhvcG5kRXBnQnZYVDZ1Tm8wUWt3UzZhUWdJVWFGZTkiLCJuIjoidGVzdCIsImlkIjoxfQ==
+          export GRAFANA_URL=http://kelchen.remote.csb:3000
+
+          # Prepare the request payload
+          PAYLOAD=$(cat grafana/output.json)
+
+          # Send the POST request to create/update the dashboard
+          http --check-status POST "${GRAFANA_URL}/api/dashboards/db" \
+            "Authorization: Bearer ${GRAFANA_API_KEY}" \
+            "Content-Type: application/json" \
+            <<< "$PAYLOAD"
           
