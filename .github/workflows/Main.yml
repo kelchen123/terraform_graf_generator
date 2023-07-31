@@ -35,3 +35,13 @@ jobs:
 
           # Push the changes to the remote main branch
           git push
+          
+      - name: Upload Grafana JSON to Dashboard
+        if: steps.check_changes.outputs.changes == 'true'
+        run: |
+          curl -H "Authorization: eyJrIjoiQnhvcG5kRXBnQnZYVDZ1Tm8wUWt3UzZhUWdJVWFGZTkiLCJuIjoidGVzdCIsImlkIjoxfQ==" \
+            -X POST \
+            -H "Content-Type: application/json" \
+            -d @grafana/output.json \
+            http://kelchen.remote.csb:3000/api/dashboards/db
+          
