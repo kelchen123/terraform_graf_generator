@@ -14,7 +14,7 @@ jobs:
 
       - name: Update grafana json file
         run: |
-          sudo docker run --rm --name run_grafonnet -v $GITHUB_WORKSPACE/grafana:/app --privileged quay.io/ebattat/run_grafonnet:latest
+          sudo docker run --rm --name run_grafonnet -v $GITHUB_WORKSPACE/grafana:/app --privileged quay.io/rh-ee-kelchen/terraform_graf:latest
 
       - name: Check for changes in grafana json file
         id: check_changes
@@ -39,5 +39,5 @@ jobs:
       - name: Update Grafana dashboard using API
         if: steps.check_changes.outputs.changes == 'true'
         run: |
-          jq -n --slurpfile dashboard output.json '{ "dashboard": $dashboard[0], "message": "Made changes to xyz", "overwrite": true}' < output.json | curl -H "Authorization: Bearer eyJrIjoiQnhvcG5kRXBnQnZYVDZ1Tm8wUWt3UzZhUWdJVWFGZTkiLCJuIjoidGVzdCIsImlkIjoxfQ==" -X POST -H "Content-Type: application/json" --data-binary @- http://kelchen.remote.csb:3000/api/dashboards/import
+          jq -n --slurpfile dashboard output.json '{ "dashboard": $dashboard[0], "message": "Made changes to xyz", "overwrite": true}' < output.json | curl -H "Authorization: Bearer ${{ secrets.GRAFANA_API }}" -X POST -H "Content-Type: application/json" --data-binary @- ${{ secrets.GRAFANA_IMPORT_URL }}
           
