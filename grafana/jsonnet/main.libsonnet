@@ -4,6 +4,7 @@ local elasticsearch = grafonnet.query.elasticsearch;
 local stateTimeline = grafonnet.panel.stateTimeline;
 local var = g.dashboard.variable;
 
+
 g.dashboard.new('PerfCI-Regression-Summary')
 + g.dashboard.time.withFrom('now-45d')
 + g.dashboard.time.withTo('now')
@@ -37,7 +38,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
 //////////////////////////////////////////////////////
 + g.dashboard.templating.withList([
   /*
-  test
+  
   g.dashboard.variable.datasource.new('Elasticsearch-hammerdb-results', 'elasticsearch')
   + g.dashboard.variable.datasource.withRegex('/^Elasticsearch-hammerdb-results/'),
 
@@ -5185,7 +5186,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
         + g.panel.row.withId(176)
 
           + g.panel.row.withPanels([
-            g.panel.stateTimeline.new('300 Fedora37 VMs(Sec)')
+            g.panel.stateTimeline.new('240 Fedora37 VMs(Sec)')
             + stateTimeline.queryOptions.withDatasource('Elasticsearch-bootstorm-results')
             + g.panel.stateTimeline.withDescription('Time till VM Login - Lower is better')
 
@@ -5281,7 +5282,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
          
               ])
 
-              + elasticsearch.withQuery('scale:300 AND ocp_version:$ocp_version')
+              + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
               + elasticsearch.withRefId('A')
               + elasticsearch.withTimeField('timestamp'),
 
@@ -5316,7 +5317,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
          
               ])
 
-              + elasticsearch.withQuery('scale:300 AND ocp_version:$ocp_version')
+              + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
               + elasticsearch.withRefId('B')
               + elasticsearch.withTimeField('timestamp'),
 
@@ -5353,7 +5354,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
          
               ])
 
-              + elasticsearch.withQuery('scale:300 AND ocp_version:$ocp_version')
+              + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
               + elasticsearch.withRefId('C')
               + elasticsearch.withTimeField('timestamp'),
 
@@ -5397,7 +5398,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
          
               ])
 
-              + elasticsearch.withQuery('scale:300 AND ocp_version:$ocp_version')
+              + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
               + elasticsearch.withRefId('D')
               + elasticsearch.withTimeField('timestamp'),
 
@@ -5432,7 +5433,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
          
               ])
 
-              + elasticsearch.withQuery('scale:300 AND ocp_version:$ocp_version')
+              + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
               + elasticsearch.withRefId('F')
               + elasticsearch.withTimeField('timestamp'),
 
@@ -5467,7 +5468,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
          
               ])
 
-              + elasticsearch.withQuery('scale:300 AND ocp_version:$ocp_version')
+              + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
               + elasticsearch.withRefId('E')
               + elasticsearch.withTimeField('timestamp'),
 
@@ -5503,7 +5504,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
          
               ])
 
-              + elasticsearch.withQuery('scale:300 AND ocp_version:$ocp_version')
+              + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
               + elasticsearch.withRefId('G')
               + elasticsearch.withTimeField('timestamp'),
 
@@ -5540,7 +5541,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
          
               ])
 
-              + elasticsearch.withQuery('scale:300 AND ocp_version:$ocp_version')
+              + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
               + elasticsearch.withRefId('H')
               + elasticsearch.withTimeField('timestamp'),
 
@@ -5577,7 +5578,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
          
               ])
 
-              + elasticsearch.withQuery('scale:300 AND ocp_version:$ocp_version')
+              + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
               + elasticsearch.withRefId('I')
               + elasticsearch.withTimeField('timestamp'),
 
@@ -5613,7 +5614,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
          
               ])
 
-              + elasticsearch.withQuery('scale:300 AND ocp_version:$ocp_version')
+              + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
               + elasticsearch.withRefId('J')
               + elasticsearch.withTimeField('timestamp'),
 
@@ -5649,7 +5650,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
          
               ])
 
-              + elasticsearch.withQuery('scale:300 AND ocp_version:$ocp_version')
+              + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
               + elasticsearch.withRefId('K')
               + elasticsearch.withTimeField('timestamp'),
 
@@ -5684,7 +5685,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
          
               ])
 
-              + elasticsearch.withQuery('scale:300 AND ocp_version:$ocp_version')
+              + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
               + elasticsearch.withRefId('L')
               + elasticsearch.withTimeField('timestamp'),
 
@@ -5718,7 +5719,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
          
               ])
 
-              + elasticsearch.withQuery('scale:300 AND ocp_version:$ocp_version')
+              + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
               + elasticsearch.withRefId('M')
               + elasticsearch.withTimeField('timestamp')
 
@@ -6014,12 +6015,12 @@ g.dashboard.new('PerfCI-Regression-Summary')
               + elasticsearch.withMetrics([
                 elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('worker-0_Memory')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.settings.withScript('_value/1000000000/2')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Max.settings.withScript('_value/1000000000')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max')
          
               ])
 
-              + elasticsearch.withQuery('scale:300 AND ocp_version:$ocp_version')
+              + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
               + elasticsearch.withRefId('E')
               + elasticsearch.withTimeField('timestamp'),
 
@@ -6289,6 +6290,8 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
 
           ]),
+        
+        
 
         g.panel.row.new("Artifacts")
         + g.panel.row.withCollapsed(value=true)
@@ -6332,62 +6335,30 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
             ])
             + g.panel.table.fieldConfig.withOverrides([
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('ci_date.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(146),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Date')
-              ]),
+              g.panel.table.fieldOverride.byName.new('ci_date.keyword')
+             + g.panel.table.fieldOverride.byName.withProperty('custom.width',169)
+             + g.panel.table.fieldOverride.byName.withProperty('displayName','Date'),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('db_type.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(137),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Database')
+             g.panel.table.fieldOverride.byName.new('db_type.keyword')
+             + g.panel.table.fieldOverride.byName.withProperty('custom.width',137)
+             + g.panel.table.fieldOverride.byName.withProperty('displayName','Database'),
 
-              ]),
+             g.panel.table.fieldOverride.byName.new('current_worker')
+             + g.panel.table.fieldOverride.byName.withProperty('custom.width',134)
+             + g.panel.table.fieldOverride.byName.withProperty('displayName','Thread'),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('current_worker')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(134),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Thread')
+             g.panel.table.fieldOverride.byName.new('kind.keyword')
+             + g.panel.table.fieldOverride.byName.withProperty('custom.width',159)
+             + g.panel.table.fieldOverride.byName.withProperty('displayName','Kind'),
 
-              ]),
+             g.panel.table.fieldOverride.byName.new('run_artifacts_url.keyword')
+             + g.panel.table.fieldOverride.byName.withProperty('custom.width',1068)
+             + g.panel.table.fieldOverride.byName.withProperty('displayName','Artifacts Link'),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('kind.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(159),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Kind')
+             g.panel.table.fieldOverride.byName.new('storage_type.keyword')
+             + g.panel.table.fieldOverride.byName.withProperty('displayName','Storage'),
 
-              ]),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('run_artifacts_url.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(1068),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Artifacts Link')
-
-              ]),
-
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('storage_type.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Storage')
-
-              ])
 
 
             ])
@@ -6523,62 +6494,28 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
             ])
             + g.panel.table.fieldConfig.withOverrides([
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('ci_date.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(169),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Date')
-              ]),
+              g.panel.table.fieldOverride.byName.new('ci_date.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',169)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Date'),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('read_message_size')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(167),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Read Message Size')
+              g.panel.table.fieldOverride.byName.new('read_message_size')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',167)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Read Message Size'),
 
-              ]),
+              g.panel.table.fieldOverride.byName.new('num_threads')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',125)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Thread'),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('num_threads')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(125),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Thread')
+              g.panel.table.fieldOverride.byName.new('kind.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',114)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Kind'),
 
-              ]),
+              g.panel.table.fieldOverride.byName.new('run_artifacts_url.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',1068)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Artifacts Link'),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('kind.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(114),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Kind')
-
-              ]),
-
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('run_artifacts_url.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(1068),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Artifacts Link')
-
-              ]),
-
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('Average')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Average Gbits')
-
-              ])
+              g.panel.table.fieldOverride.byName.new('Average')
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Average Gbits')
 
 
             ])
@@ -6696,70 +6633,32 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
             ])
             + g.panel.table.fieldConfig.withOverrides([
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('ci_date.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(227),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Date')
-              ]),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('kind.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(100),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Kind')
+              g.panel.table.fieldOverride.byName.new('ci_date.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',227)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Date'),
 
-              ]),
+              g.panel.table.fieldOverride.byName.new('kind.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',100)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Kind'),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('run_artifacts_url.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(1000),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Artifacts Link')
+              g.panel.table.fieldOverride.byName.new('run_artifacts_url.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',1000)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Artifacts Link'),
 
-              ]),
+              g.panel.table.fieldOverride.byName.new('Average')
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Average Rate'),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('Average')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Average Rate')
+              g.panel.table.fieldOverride.byName.new('Run.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',140)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Run'),
 
-              ]),
+              g.panel.table.fieldOverride.byName.new('Threads')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',100)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Thread'),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('Run.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(140),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Run')
-
-              ]),
-
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('Threads')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(100),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Thread')
-
-              ]),
-
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('Artifacts Link')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(1521)
-
-              ])
+              g.panel.table.fieldOverride.byName.new('Artifacts Link')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',1521)
 
 
             ])
@@ -6868,62 +6767,29 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
             ])
             + g.panel.table.fieldConfig.withOverrides([
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('ci_date.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(227),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Date')
-              ]),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('kind.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(100),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Kind')
+              g.panel.table.fieldOverride.byName.new('ci_date.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',227)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Date'),
 
-              ]),
+              g.panel.table.fieldOverride.byName.new('kind.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',100)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Kind'),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('run_artifacts_url.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(1000),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Artifacts Link')
+              g.panel.table.fieldOverride.byName.new('run_artifacts_url.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',1000)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Artifacts Link'),
 
-              ]),
+              g.panel.table.fieldOverride.byName.new('Average')
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Average Rate'),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('Average')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Average Rate')
+              g.panel.table.fieldOverride.byName.new('Run.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',140)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Run'),
 
-              ]),
-
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('Run.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(140),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Run')
-
-              ]),
-
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('Threads')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(100),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Thread')
-
-              ])
+              g.panel.table.fieldOverride.byName.new('Threads')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',100)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Thread')
 
 
             ])
@@ -7038,20 +6904,13 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
             ])
             + g.panel.table.fieldConfig.withOverrides([
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('run_artifacts_url')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(1600)
-              ]),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('Date')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(227)
-              ])
+              g.panel.table.fieldOverride.byName.new('run_artifacts_url')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',1600),
 
+              g.panel.table.fieldOverride.byName.new('Date')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',227)
+              
             ])
 
             + g.panel.table.gridPos.withH(6)
@@ -7188,19 +7047,13 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
             ])
             + g.panel.table.fieldConfig.withOverrides([
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('run_artifacts_url')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(1600)
-              ]),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('Date')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(227)
-              ])
+              g.panel.table.fieldOverride.byName.new('run_artifacts_url')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',1600),
+
+              g.panel.table.fieldOverride.byName.new('Date')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',227)
+              
 
             ])
 
@@ -7338,62 +7191,30 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
             ])
             + g.panel.table.fieldConfig.withOverrides([
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('ci_date.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(227),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Date')
-              ]),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('kind.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(100),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Kind')
+              g.panel.table.fieldOverride.byName.new('ci_date.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',227)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Date'),
 
-              ]),
+              g.panel.table.fieldOverride.byName.new('kind.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',100)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Kind'),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('run_artifacts_url.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(1000),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Artifacts Link')
+              g.panel.table.fieldOverride.byName.new('run_artifacts_url.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',1000)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Artifacts Link'),
 
-              ]),
+              g.panel.table.fieldOverride.byName.new('Average')
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Average Rate'),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('Average')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Average Rate')
+              g.panel.table.fieldOverride.byName.new('Run.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',140)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Run'),
 
-              ]),
+              g.panel.table.fieldOverride.byName.new('Threads')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',100)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Thread')
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('Run.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(140),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Run')
-
-              ]),
-
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('Threads')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(100),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Thread')
-
-              ]),
 
             ])
 
@@ -7458,7 +7279,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
 
               ])
-              + elasticsearch.withQuery("scale:300")
+              + elasticsearch.withQuery("scale:240")
               + elasticsearch.withRefId('A')
               + elasticsearch.withTimeField('timestamp')
             ])
@@ -7515,62 +7336,29 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
             ])
             + g.panel.table.fieldConfig.withOverrides([
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('ci_date.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(227),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Date')
-              ]),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('kind.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(100),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Kind')
+              g.panel.table.fieldOverride.byName.new('ci_date.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',227)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Date'),
 
-              ]),
+              g.panel.table.fieldOverride.byName.new('kind.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',100)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Kind'),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('run_artifacts_url.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(1000),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Artifacts Link')
+              g.panel.table.fieldOverride.byName.new('run_artifacts_url.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',1000)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Artifacts Link'),
 
-              ]),
+              g.panel.table.fieldOverride.byName.new('Average')
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Average Rate'),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('Average')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Average Rate')
+              g.panel.table.fieldOverride.byName.new('Run.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',140)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Run'),
 
-              ]),
-
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('Run.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(140),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Run')
-
-              ]),
-
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('Threads')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(100),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Thread')
-
-              ]),
+              g.panel.table.fieldOverride.byName.new('Threads')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',100)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Thread')
 
             ])
 
@@ -7715,6 +7503,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
 
         ])
+        
 
           
 
@@ -7723,4 +7512,3 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
 
 ])
-
