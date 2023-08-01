@@ -3,7 +3,7 @@ apply:
 	@cd jsonnet/ && \
 		/root/go/bin/jb install && \
 		cd ../ && \
-		terraform apply --auto-approve > output.json
+		terraform apply -json --auto-approve > output.json
 
 
 
