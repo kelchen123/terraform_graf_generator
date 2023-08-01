@@ -4,7 +4,6 @@ local elasticsearch = grafonnet.query.elasticsearch;
 local stateTimeline = grafonnet.panel.stateTimeline;
 local var = g.dashboard.variable;
 
-
 g.dashboard.new('PerfCI-Regression-Summary')
 + g.dashboard.time.withFrom('now-45d')
 + g.dashboard.time.withTo('now')
@@ -38,7 +37,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
 //////////////////////////////////////////////////////
 + g.dashboard.templating.withList([
   /*
-  
+  test
   g.dashboard.variable.datasource.new('Elasticsearch-hammerdb-results', 'elasticsearch')
   + g.dashboard.variable.datasource.withRegex('/^Elasticsearch-hammerdb-results/'),
 
