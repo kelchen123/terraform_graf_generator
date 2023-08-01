@@ -1,6 +1,6 @@
 .PHONY: apply
 apply:
 	@cd jsonnet/ && \
-		jb install && \
+		/root/go/bin/jb install && \
 		cd ../ && \
 		terraform apply -auto-approve > output.json
