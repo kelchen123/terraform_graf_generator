@@ -14,7 +14,7 @@ jobs:
 
       - name: Update grafana json file
         run: |
-          sudo docker run --rm --name run_grafonnet -v $GITHUB_WORKSPACE/grafana:/app --privileged quay.io/rh-ee-kelchen/graf_image_test2:latest
+          sudo docker run --rm --name run_grafonnet -v $GITHUB_WORKSPACE/grafana:/app --privileged quay.io/rh-ee-kelchen/terraform_graf:latest
 
       - name: Check for changes in grafana json file
         id: check_changes
